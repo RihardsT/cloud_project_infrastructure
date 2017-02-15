@@ -10,7 +10,8 @@ RUN cd /tmp && wget https://nginx.org/download/nginx-$NGINX_VERSION.tar.gz \
   && tar -xf nginx-$NGINX_VERSION.tar.gz
 
 RUN gem install passenger --no-rdoc --no-ri \
-  && passenger-install-nginx-module --auto --nginx-source-dir=/tmp/nginx-$NGINX_VERSION --prefix=/opt/nginx --languages python
+  && passenger-install-nginx-module --auto \
+  --nginx-source-dir=/tmp/nginx-$NGINX_VERSION --prefix=/opt/nginx --languages python
 
 RUN apt-get purge -y build-essential && apt-get autoclean -y && apt-get -y autoremove
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
