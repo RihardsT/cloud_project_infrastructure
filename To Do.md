@@ -1,0 +1,54 @@
+- [x] Deploy a VM
+- [ ] Automatic provisioning
+  - [ ] Ansible all these things
+  - [x] Setup OpenVPN
+    - [ ] https://github.com/kylemanna/docker-openvpn // https://github.com/giggio/docker-openvpn-arm
+  - [x] Try out Gunicorn
+    - http://ruddra.com/2016/08/14/docker-django-nginx-postgres/
+    - pip install docker-compose
+- [ ] Develop the blog project
+  - [x] Main template: https://docs.djangoproject.com/en/1.10/topics/templates/#template-inheritance
+  - [x] <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
+  - [x] <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+  - [ ] Add some actual functionality
+    - [ ] Markdown in articles - https://github.com/sv0/django-markdown-app
+  - [ ] Major Semantic UI work - Make it beautiful
+  - [x] Split tests
+    - [x] Put tests in separate folder
+    - https://realpython.com/blog/python/testing-in-django-part-1-best-practices-and-examples/
+    - [x] Code coverage
+      - [ ] Codacy https://github.com/codacy/python-codacy-coverage#setup
+    - [ ] Selenium
+    - [ ] Travis-ci ?
+    - [x] Gitlab-ci
+  - [ ] Postgresql database
+    - [ ] Separate docker container and volume?
+  - [ ] SSL - Letsencrypt https://github.com/kshcherban/acme-nginx https://letsencrypt.org/docs/client-options/
+- [ ] Kubernetes https://github.com/kubernetes/kubernetes
+- [ ] Monitoring
+  - [ ] Container Monitoring
+    - docker stats
+    - https://github.com/google/cadvisor
+    - http://rancher.com/comparing-monitoring-options-for-docker-deployments/
+    - https://github.com/prometheus/prometheus
+  - [ ] Set up newest Sensu and Uchiwa.
+    - [ ] Dockerized https://github.com/sensu/sensu/issues/1201
+    - sstarcher/sensu:slim https://hub.docker.com/r/sstarcher/sensu/
+
+
+- Other interesting stuff
+  - Mattermost: https://github.com/mattermost/mattermost-dockercd
+  - Serverless with docker
+    - http://blog.alexellis.io/functions-as-a-service/
+    - https://github.com/bfirsh/serverless-docker
+
+
+- Dropped ideas/approaches
+  - [x] (Gunicorn) Set up Nginx, Passenger
+    - [x] Dockerized
+    - [ ] Don't use passenger_full image as base
+    - [ ] Try more minimal docker base image: https://hub.docker.com/r/blitznote/debootstrap-amd64/
+  - [ ] (Gunicorn) Alpine passenger
+    - https://github.com/lincheney/alpine-passenger/blob/master/Dockerfile
+  - [ ] (Alpine) Minimal Ubuntu ARM image? Could try to make
+    - https://wiki.ubuntu.com/ARM/RootfsFromScratch/QemuDebootstrap  
