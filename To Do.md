@@ -1,10 +1,14 @@
+- [ ] Domain name from https://www.nic.lv/
+- [ ] Scaleway ARM Machine
 - [x] Deploy a VM
 - [ ] Automatic provisioning
   - [ ] Ansible all these things
   - [x] Setup OpenVPN
-    - [ ] https://github.com/kylemanna/docker-openvpn // https://github.com/giggio/docker-openvpn-arm
+    - [x] https://github.com/kylemanna/docker-openvpn // https://github.com/giggio/docker-openvpn-arm
   - [x] Try out Gunicorn
     - http://ruddra.com/2016/08/14/docker-django-nginx-postgres/
+    - [x] ARM Dockerized
+      - [ ] Automatic builds of Postgres, Python, Nginx for ARM. Use Travis-ci cron jobs to look for updates in official repos
     - pip install docker-compose
 - [ ] Develop the blog project
   - [x] Main template: https://docs.djangoproject.com/en/1.10/topics/templates/#template-inheritance
@@ -37,7 +41,8 @@
 
 
 - Other interesting stuff
-  - Mattermost: https://github.com/mattermost/mattermost-dockercd
+  - [x] Mailserver: https://github.com/tomav/docker-mailserver
+  - Mattermost: https://github.com/mattermost/mattermost-docker
   - Serverless with docker
     - http://blog.alexellis.io/functions-as-a-service/
     - https://github.com/bfirsh/serverless-docker

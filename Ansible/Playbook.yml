@@ -1,0 +1,34 @@
+# https://plusbryan.com/my-first-5-minutes-on-a-server-or-essential-security-for-linux-servers
+
+# fail2ban
+# SSH user
+# adduser --disabled-password --gecos "" eeLsACjx
+# mkdir /home/eeLsACjx
+# mkdir /home/eeLsACjx/.ssh
+# chmod 700 /home/eeLsACjx/.ssh
+# vim /home/eeLsACjx/.ssh/authorized_keys
+# chmod 400 /home/eeLsACjx/.ssh/authorized_keys
+# chown eeLsACjx:eeLsACjx /home/eeLsACjx -R
+
+
+---
+- hosts: all
+  remote_user: blogapp
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - tersmitten.fail2ban
+    - geerlingguy.security
+    # https://galaxy.ansible.com/geerlingguy/security/
+  vars:
+    fail2ban_services:
+      - name: sshd
+        port: 22
+        bantime: 3600
+  tasks:
+    - name: Set authorized key took from file
+      authorized_key:
+        user: blogapp
+        state: present
+        key: "{{ lookup('file', '/home/rihards/.ssh/scaleway.pub') }}"
