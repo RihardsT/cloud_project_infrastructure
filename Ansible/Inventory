@@ -1,2 +1,5 @@
 [backend]
 blogapp.northeurope.cloudapp.azure.com
+
+[production]
+rudenspavasaris.id.lv

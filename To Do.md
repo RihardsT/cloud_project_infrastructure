@@ -1,8 +1,12 @@
-- [ ] Domain name from https://www.nic.lv/
-- [ ] Scaleway ARM Machine
+- [x] Domain name from https://www.nic.lv/
+  - Other free domain names: http://www.freenom.com/ http://webtechnepal.com/support/free-np-domain-registration-guidelines/
+- [x] Scaleway ARM Machine
 - [x] Deploy a VM
-- [ ] Automatic provisioning
-  - [ ] Ansible all these things
+- [ ] Automatic provisioning (what do I actually mean with this?)
+  - [x] Ansible all these things
+    - [ ] New user creation
+    - [ ] Docker install
+    - [ ] Bring up the containers  
   - [x] Setup OpenVPN
     - [x] https://github.com/kylemanna/docker-openvpn // https://github.com/giggio/docker-openvpn-arm
   - [x] Try out Gunicorn
@@ -25,7 +29,7 @@
     - [ ] Selenium
     - [ ] Travis-ci ?
     - [x] Gitlab-ci
-  - [ ] Postgresql database
+  - [x] Postgresql database
     - [ ] Separate docker container and volume?
   - [ ] SSL - Letsencrypt https://github.com/kshcherban/acme-nginx https://letsencrypt.org/docs/client-options/
 - [ ] Kubernetes https://github.com/kubernetes/kubernetes
@@ -35,6 +39,8 @@
     - https://github.com/google/cadvisor
     - http://rancher.com/comparing-monitoring-options-for-docker-deployments/
     - https://github.com/prometheus/prometheus
+  - [ ] Graylog https://hub.docker.com/r/graylog2/server/
+    - http://docs.graylog.org/en/latest/pages/collector_sidecar.html
   - [ ] Set up newest Sensu and Uchiwa.
     - [ ] Dockerized https://github.com/sensu/sensu/issues/1201
     - sstarcher/sensu:slim https://hub.docker.com/r/sstarcher/sensu/

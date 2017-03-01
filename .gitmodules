@@ -1,3 +1,6 @@
 [submodule "DockerGunicorn/src"]
 	path = DockerGunicorn/src
 	url = git@gitlab.com:RihardsT/blog_project.git
+[submodule "DockerGunicornARM/src"]
+	path = DockerGunicornARM/src
+	url = git@gitlab.com:RihardsT/blog_project.git
