@@ -1,5 +1,6 @@
 ansible-galaxy install --roles-path ./roles tersmitten.fail2ban
 ansible-galaxy install --roles-path ./roles geerlingguy.security
+# ansible-galaxy install amidos.install-docker -p ./roles # for some reason this role failed for me
 
 # ansible-playbook # apply a playbook to servers
 # --check # dry run

@@ -4,7 +4,7 @@
 - [x] Deploy a VM
 - [ ] Automatic provisioning (what do I actually mean with this?)
   - [x] Ansible all these things
-    - [ ] New user creation
+    - [x] New user creation
     - [ ] Docker install
     - [ ] Docker compose
     - [ ] Bring up the containers  

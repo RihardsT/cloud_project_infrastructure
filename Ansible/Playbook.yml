@@ -4,9 +4,6 @@
   become: yes
   become_user: root
   become_method: sudo
-  roles:
-    - tersmitten.fail2ban
-    - geerlingguy.security
   vars:
     fail2ban_services:
       - name: sshd
@@ -14,7 +11,7 @@
         bantime: 3600
     sudoers:
       - blogadmin
-  tasks:
+  pre_tasks: # Set as pre_task, to set up the user in the beginning
     - name: Make sure we have a 'code' group
       group:
         name: code
@@ -41,3 +38,6 @@
         user: blogadmin
         state: present
         key: "{{ lookup('file', '/home/rihards/.ssh/scaleway.pub') }}"
+  roles:
+    - tersmitten.fail2ban
+    - geerlingguy.security
