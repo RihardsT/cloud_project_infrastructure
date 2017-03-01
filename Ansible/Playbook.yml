@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  remote_user: blogapp
+  remote_user: blogadmin
   become: yes
   become_user: root
   become_method: sudo
@@ -12,9 +12,32 @@
       - name: sshd
         port: 22
         bantime: 3600
+    sudoers:
+      - blogadmin
   tasks:
+    - name: Make sure we have a 'code' group
+      group:
+        name: code
+        state: present
+    - name: Allow 'code' group to have passwordless sudo
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^%code'
+        line: '%code ALL=(ALL) NOPASSWD: ALL'
+        validate: visudo -cf %s
+    - name: Add sudoers users to code group
+      user:
+        name: "{{ item }}"
+        shell: /bin/bash
+        groups: code
+        append: yes
+        generate_ssh_key: yes
+        ssh_key_bits: 2048
+        ssh_key_file: .ssh/{{ item }}
+      with_items: "{{ sudoers }}"
     - name: Set authorized key took from file
       authorized_key:
-        user: blogapp
+        user: blogadmin
         state: present
         key: "{{ lookup('file', '/home/rihards/.ssh/scaleway.pub') }}"
