@@ -6,6 +6,7 @@
   - [x] Ansible all these things
     - [ ] New user creation
     - [ ] Docker install
+    - [ ] Docker compose
     - [ ] Bring up the containers  
   - [x] Setup OpenVPN
     - [x] https://github.com/kylemanna/docker-openvpn // https://github.com/giggio/docker-openvpn-arm
