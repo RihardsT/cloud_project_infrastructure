@@ -4,7 +4,7 @@ services:
     image: registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm
     container_name: nginx01
     ports:
-      - "8000:8000"
+      - "80:8000"
     volumes:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
@@ -14,7 +14,7 @@ services:
   web:
     build: .
     container_name: django01
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn blog_project.wsgi -b 0.0.0.0:8000"
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn blog_project.wsgi -b 0.0.0.0:8000"
     depends_on:
       - db
     volumes:
