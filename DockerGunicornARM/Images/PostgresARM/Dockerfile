@@ -1,5 +1,5 @@
 # vim:set ft=dockerfile:
-FROM hypriot/rpi-alpine:3.5
+FROM armhf/alpine:3.5
 
 # alpine includes "postgres" user/group in base install
 # /etc/passwd:22:postgres:x:70:70::/var/lib/postgresql:/bin/sh
@@ -126,7 +126,8 @@ VOLUME /var/lib/postgresql/data
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
-ENTRYPOINT ["docker-entrypoint.sh"]
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
 EXPOSE 5432
 CMD ["postgres"]
