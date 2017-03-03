@@ -26,3 +26,5 @@ services:
   db:
     image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm
     container_name: postgres01
+    volumes:
+      - /var/docker/postgresql/data:/var/lib/postgresql/data

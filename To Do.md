@@ -14,7 +14,8 @@
     - http://ruddra.com/2016/08/14/docker-django-nginx-postgres/
     - [x] ARM Dockerized
       - [ ] Automatic builds of Postgres, Python, Nginx for ARM. Use Travis-ci cron jobs to look for updates in official repos
-    - pip install docker-compose
+    - [x] pip install docker-compose
+    - [ ] Move to compose file version 3 https://docs.docker.com/compose/compose-file/compose-versioning/#version-3
 - [ ] Develop the blog project
   - [x] Main template: https://docs.djangoproject.com/en/1.10/topics/templates/#template-inheritance
   - [x] <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
@@ -31,7 +32,7 @@
     - [ ] Travis-ci ?
     - [x] Gitlab-ci
   - [x] Postgresql database
-    - [ ] Separate docker container and volume?
+    - [x] Separate docker container and volume?
   - [ ] SSL - Letsencrypt https://github.com/kshcherban/acme-nginx https://letsencrypt.org/docs/client-options/
 - [ ] Kubernetes https://github.com/kubernetes/kubernetes
 - [ ] Monitoring
