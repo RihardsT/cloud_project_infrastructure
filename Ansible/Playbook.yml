@@ -38,6 +38,11 @@
         user: blogadmin
         state: present
         key: "{{ lookup('file', '/home/rihards/.ssh/scaleway.pub') }}"
+    - name: Another ssh key
+      authorized_key:
+        user: blogadmin
+        state: present
+        key: "{{ lookup('file', '../../key.pub') }}"
   roles:
     - tersmitten.fail2ban
     - geerlingguy.security

@@ -16,14 +16,14 @@ services:
     container_name: django01
     command: sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn blog_project.wsgi -b 0.0.0.0:8000"
     depends_on:
-      - db
+      - postgres
     volumes:
       - ./src:/src
       - ./static:/static
     expose:
       - "8000"
 
-  db:
+  postgres:
     image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm
     container_name: postgres01
     volumes:
