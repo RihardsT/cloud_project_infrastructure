@@ -1,7 +1,7 @@
 version: '2'
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:alpine
     container_name: nginx01
     ports:
       - "8000:8000"
@@ -14,7 +14,7 @@ services:
   web:
     build: .
     container_name: django01
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn blog_project.wsgi -b 0.0.0.0:8000"
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn blog_project.wsgi -b 0.0.0.0:8000"
     depends_on:
       - db
     volumes:
@@ -24,5 +24,5 @@ services:
       - "8000"
 
   db:
-    image: postgres:latest
+    image: postgres:alpine
     container_name: postgres01
