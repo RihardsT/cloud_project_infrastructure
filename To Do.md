@@ -1,3 +1,9 @@
+### Prioritized list
+ - [ ] Letsencrypt https://github.com/certbot/certbot
+ - [ ] Document all that's done until now
+ - [ ] Set up Sensu
+
+### Previous stuff
 - [x] Domain name from https://www.nic.lv/
   - Other free domain names: http://www.freenom.com/ http://webtechnepal.com/support/free-np-domain-registration-guidelines/
 - [x] Scaleway ARM Machine
