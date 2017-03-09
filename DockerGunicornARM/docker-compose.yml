@@ -9,7 +9,7 @@ services:
       - ./src:/src
       - ./config/nginx:/etc/nginx/conf.d
       - ./static:/static
-      - /srv/ssl/:/etc/nginx/ssl/
+      - /var/docker/certbot/etc/live/www.rudenspavasaris.id.lv:/etc/nginx/ssl/
     depends_on:
       - web
   web:
