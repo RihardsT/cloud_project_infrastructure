@@ -1,7 +1,20 @@
 ### Prioritized list
- - [ ] Letsencrypt https://github.com/certbot/certbot
- - [ ] Document all that's done until now
- - [ ] Set up Sensu
+ - [x] Letsencrypt https://github.com/certbot/certbot
+ - [x] Document all that's done until now
+ - [x] Set up Monitoring
+ - [ ] Separate repos
+  - [x] Ansible
+  - cloud_project_infrastructure to hold
+    - Terraform
+ - [ ] Netdata under basicauth
+ - [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
+ - [ ] Backups
+ - [ ] Weekly check of software updates
+  - [ ] Nginx
+    - [ ] Push to DockerHub?
+  - [ ] Postgresql
+  - [ ] Python
+  - [ ] Netdata
 
 ### Previous stuff
 - [x] Domain name from https://www.nic.lv/
@@ -52,7 +65,24 @@
   - [ ] Set up newest Sensu and Uchiwa.
     - [ ] Dockerized https://github.com/sensu/sensu/issues/1201
     - sstarcher/sensu:slim https://hub.docker.com/r/sstarcher/sensu/
+      - [ ] No sensu package for ARM architecture
+    - [ ] Notifications to Telegram
+    - http://metz.gehn.net/2016/01/monitoring-notifications-via-telegram/
+  - [ ] Test Ansible
+  - https://www.ansible.com/blog/testing-ansible-roles-with-docker
+- [ ] Documentation page
+  - [ ] Drop the custom domain on Gitlab pages as I haven't yet found proper way to enforce https without javascript or such
+  - [ ] Host it on
+- [ ] Send mail on IP change
+  - https://ariandy1.wordpress.com/2014/04/08/linux-send-email-when-ip-address-changes/
 
+- Monitoring
+  - https://www.icinga.com/products/icinga-2/
+  - [x] https://github.com/firehol/netdata
+    - https://github.com/firehol/netdata/wiki/mynetdata-menu-item
+    - [ ] Netdata under basicauth
+    - Historic data https://github.com/firehol/netdata/wiki/netdata-backends
+      - [ ] Grafana for historic data https://grafana.com/dashboards/1295
 
 - Other interesting stuff
   - [x] Mailserver: https://github.com/tomav/docker-mailserver
@@ -60,7 +90,7 @@
   - Serverless with docker
     - http://blog.alexellis.io/functions-as-a-service/
     - https://github.com/bfirsh/serverless-docker
-
+  - https://github.com/aleen42/badges
 
 - Dropped ideas/approaches
   - [x] (Gunicorn) Set up Nginx, Passenger
