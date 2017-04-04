@@ -84,6 +84,11 @@
     - Historic data https://github.com/firehol/netdata/wiki/netdata-backends
       - [ ] Grafana for historic data https://grafana.com/dashboards/1295
 
+- Ansible
+  - Testing: https://www.ansible.com/blog/testing-ansible-roles-with-docker
+  - https://docs.ansible.com/ansible/playbooks_tests.html
+  - Test installed application: https://docs.ansible.com/ansible/test_strategies.html
+
 - Other interesting stuff
   - [x] Mailserver: https://github.com/tomav/docker-mailserver
   - Mattermost: https://github.com/mattermost/mattermost-docker

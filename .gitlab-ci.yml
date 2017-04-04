@@ -1,0 +1,16 @@
+build:
+  image: docker:latest
+
+  services:
+  - docker:dind
+
+  stage: build
+  script:
+    - git clone https://github.com/nginxinc/docker-nginx
+    - ls
+    - cd docker-nginx/mainline/alpine
+    - sed -i 's/FROM /FROM armhf\//g' Dockerfile
+    - TAG=$(sed -n -e 's/ENV NGINX_VERSION //p' Dockerfile)
+    - cat Dockerfile
+    - echo ${TAG}
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
