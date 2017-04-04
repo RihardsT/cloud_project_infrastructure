@@ -11,6 +11,7 @@ build:
     - cd docker-nginx/mainline/alpine
     - sed -i 's/FROM /FROM armhf\//g' Dockerfile
     - TAG=$(sed -n -e 's/ENV NGINX_VERSION //p' Dockerfile)
-    - cat Dockerfile
     - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
+    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_${TAG} .
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_test
