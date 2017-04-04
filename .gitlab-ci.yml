@@ -6,6 +6,8 @@ build:
 
   stage: build
   script:
+    - apt-get update
+    - apt-get install git
     - git clone https://github.com/nginxinc/docker-nginx
     - ls
     - cd docker-nginx/mainline/alpine
