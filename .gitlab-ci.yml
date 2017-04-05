@@ -1,10 +1,4 @@
-build:
-  image: docker:rc-git
-
-  services:
-  - docker:dind
-
-  stage: build
+job:
   script:
     - git clone https://github.com/nginxinc/docker-nginx
     - ls
@@ -15,3 +9,7 @@ build:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
     - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_${TAG} .
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_test
+
+  tags:
+    - arm
+    - shell
