@@ -1,4 +1,7 @@
-job:
+before_script:
+  - docker info
+
+build_image:
   script:
     - git clone https://github.com/nginxinc/docker-nginx
     - ls
