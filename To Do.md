@@ -10,11 +10,12 @@
  - [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
  - [ ] Backups
  - [ ] Weekly check of software updates
-  - [ ] Nginx
-    - [ ] Push to DockerHub?
-  - [ ] Postgresql
+  - [x] Nginx
+  - [x] Postgresql
   - [ ] Python
-  - [ ] Netdata
+  - [x] Netdata
+  - [x] Push images to Gitlab registry
+  - [ ] Push to DockerHub?
 
 ### Previous stuff
 - [x] Domain name from https://www.nic.lv/

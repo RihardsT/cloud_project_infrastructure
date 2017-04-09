@@ -37,8 +37,6 @@ build_netdata:
     - git clone https://github.com/firehol/netdata
     - cd netdata
     - sed -i 's/FROM /FROM armhf\//g' Dockerfile
-    - TAG=$(sed -n -e 's/ENV PG_VERSION //p' Dockerfile)
-    - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
     - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:netdata_arm_latest .
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:netdata_arm_latest
