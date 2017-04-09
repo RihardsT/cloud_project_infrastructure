@@ -1,7 +1,7 @@
 version: '2'
 services:
   nginx:
-    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_latest
     container_name: nginx01
     ports:
       - "80:8001"
@@ -26,7 +26,7 @@ services:
       - "8000"
 
   postgres:
-    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_latest
     container_name: postgres01
     volumes:
       - /var/docker/postgresql/data:/var/lib/postgresql/data
