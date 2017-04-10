@@ -1,4 +1,6 @@
 build_nginx:
+  only:
+    - triggers
   script:
     - git clone https://github.com/nginxinc/docker-nginx
     - cd docker-nginx/mainline/alpine
@@ -16,6 +18,8 @@ build_nginx:
     - shell
 
 build_postgres:
+  only:
+    - triggers
   script:
     - git clone https://github.com/docker-library/postgres/
     - cd postgres/9.6/alpine
@@ -33,6 +37,8 @@ build_postgres:
     - shell
 
 build_netdata:
+  only:
+    - triggers
   script:
     - git clone https://github.com/firehol/netdata
     - cd netdata
