@@ -51,7 +51,7 @@ build_netdata:
     - arm
     - shell
 
-build_postgres:
+build_python:
   only:
     - triggers
   script:
@@ -66,6 +66,6 @@ build_postgres:
     - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest
 
-    tags:
-      - arm
-      - shell
+  tags:
+    - arm
+    - shell
