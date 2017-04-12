@@ -58,6 +58,7 @@ build_python:
     - git clone https://github.com/docker-library/python
     - cd $(ls -d python/*/ | sort | tail -n 1)alpine
     - sed -i 's/FROM /FROM armhf\//g' Dockerfile
+    - sed -i 's/\&\& gpg --keyserver/\&\& gpg-agent --daemon \&\& gpg --keyserver/g' Dockerfile
     - TAG=$(sed -n -e 's/ENV PYTHON_VERSION //p' Dockerfile)
     - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
