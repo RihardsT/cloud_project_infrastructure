@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   nginx:
     image: registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_latest
@@ -30,3 +30,15 @@ services:
     container_name: postgres01
     volumes:
       - /var/docker/postgresql/data:/var/lib/postgresql/data
+
+  netdata:
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:netdata_arm_latest
+    container_name: netdata01
+    hostname: c_netdata
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    cap_add:
+      - SYS_PTRACE
+    ports:
+      - "19999:19999"

@@ -7,15 +7,11 @@
   - cloud_project_infrastructure to hold
     - Terraform
  - [ ] Netdata under basicauth
+ - [x] Netdata - docker-compose
  - [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
  - [ ] Backups
- - [ ] Weekly check of software updates
-  - [x] Nginx
-  - [x] Postgresql
-  - [ ] Python
-  - [x] Netdata
-  - [x] Push images to Gitlab registry
-  - [ ] Push to DockerHub?
+ - [ ] Make project public
+ - [ ] Make ARM docker images public in docker hub
 
 ### Previous stuff
 - [x] Domain name from https://www.nic.lv/
@@ -33,7 +29,15 @@
   - [x] Try out Gunicorn
     - http://ruddra.com/2016/08/14/docker-django-nginx-postgres/
     - [x] ARM Dockerized
-      - [ ] Automatic builds of Postgres, Python, Nginx for ARM. Use Travis-ci cron jobs to look for updates in official repos
+      - [x] Automatic builds of Postgres, Python, Nginx for ARM. Use Travis-ci cron jobs to look for updates in official repos
+        - Use Gitlab CI with my own runner, because I don't want to use QEMU when building ARM images in Travis-ci
+        - [x] Daily check of software updates
+         - [x] Nginx
+         - [x] Postgresql
+         - [x] Python
+         - [x] Netdata
+         - [x] Push images to Gitlab registry
+         - [ ] Push to DockerHub?
     - [x] pip install docker-compose
     - [ ] Move to compose file version 3 https://docs.docker.com/compose/compose-file/compose-versioning/#version-3
 - [ ] Develop the blog project
