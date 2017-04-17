@@ -9,6 +9,12 @@
  - [ ] Netdata under basicauth
  - [x] Netdata - docker-compose
  - [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
+ - [ ] Choose a firewall http://www.tecmint.com/open-source-security-firewalls-for-linux-systems/
+  - https://wiki.centos.org/HowTos/Network/IPTables
+  - Also check what ports are open and deny with Scaleway NSG.
+  - https://github.com/geerlingguy/ansible-role-firewall
+  - Iptables: https://github.com/nickjj/ansible-iptables
+  - https://docs.ansible.com/ansible/iptables_module.html
  - [ ] Backups
  - [ ] Make project public
  - [ ] Make ARM docker images public in docker hub
