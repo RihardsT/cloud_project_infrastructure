@@ -7,6 +7,8 @@
   - cloud_project_infrastructure to hold
     - Terraform
  - [ ] Netdata under basicauth
+  - https://github.com/firehol/netdata/wiki/Running-behind-nginx
+  - nginx: [emerg] could not build server_names_hash, you should increase server_names_hash_bucket_size: 32
  - [x] Netdata - docker-compose
  - [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
  - [ ] Choose a firewall http://www.tecmint.com/open-source-security-firewalls-for-linux-systems/
@@ -18,6 +20,7 @@
  - [ ] Backups
  - [ ] Make project public
  - [ ] Make ARM docker images public in docker hub
+ - [ ] Redirect site to www.site, as per comment in https://stackoverflow.com/questions/11773544/nginx-different-domains-on-same-ip#11778085
 
 ### Previous stuff
 - [x] Domain name from https://www.nic.lv/
