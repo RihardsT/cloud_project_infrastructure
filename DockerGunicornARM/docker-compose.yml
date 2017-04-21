@@ -7,11 +7,11 @@ services:
       - "80:8001"
       - "443:8000"
     volumes:
-      - ./src:/src
-      - ./config/nginx:/etc/nginx/conf.d
+      - ./src/:/src/
+      - ./config/nginx/:/etc/nginx/conf.d/
       - ./config/nginx.conf:/etc/nginx/nginx.conf
-      - ./static:/static
-      - /var/docker/certbot/etc/archive/www.rudenspavasaris.id.lv/:/etc/nginx/ssl/
+      - ./static/:/static/
+      - /var/docker/certbot/etc/archive/:/etc/nginx/ssl/
     depends_on:
       - web
   web:

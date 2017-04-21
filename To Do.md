@@ -8,7 +8,7 @@
     - Terraform
  - [ ] Netdata under basicauth
   - https://github.com/firehol/netdata/wiki/Running-behind-nginx
-  - nginx: [emerg] could not build server_names_hash, you should increase server_names_hash_bucket_size: 32
+  - [x] Fix: nginx: [emerg] could not build server_names_hash, you should increase server_names_hash_bucket_size: 32
  - [x] Netdata - docker-compose
  - [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
  - [ ] Choose a firewall http://www.tecmint.com/open-source-security-firewalls-for-linux-systems/
