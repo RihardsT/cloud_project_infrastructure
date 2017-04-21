@@ -84,8 +84,8 @@ build_python2:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
     - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} .
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG}
-    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest
+    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest2
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest2
 
   tags:
     - arm
