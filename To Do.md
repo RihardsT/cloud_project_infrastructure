@@ -1,26 +1,27 @@
 ### Prioritized list
- - [x] Letsencrypt https://github.com/certbot/certbot
- - [x] Document all that's done until now
- - [x] Set up Monitoring
- - [ ] Separate repos
+- [x] Letsencrypt https://github.com/certbot/certbot
+- [x] Document all that's done until now
+- [x] Set up Monitoring
+- [ ] Separate repos
   - [x] Ansible
   - cloud_project_infrastructure to hold
     - Terraform
- - [ ] Netdata under basicauth
+- [ ] Netdata under basicauth
   - https://github.com/firehol/netdata/wiki/Running-behind-nginx
   - [x] Fix: nginx: [emerg] could not build server_names_hash, you should increase server_names_hash_bucket_size: 32
- - [x] Netdata - docker-compose
- - [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
- - [ ] Choose a firewall http://www.tecmint.com/open-source-security-firewalls-for-linux-systems/
+- [ ] Redirect netdata to https. Currently blog_project.conf apporach doesn't work for netdata.
+- [x] Netdata - docker-compose
+- [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
+- [ ] Choose a firewall http://www.tecmint.com/open-source-security-firewalls-for-linux-systems/
   - https://wiki.centos.org/HowTos/Network/IPTables
   - Also check what ports are open and deny with Scaleway NSG.
   - https://github.com/geerlingguy/ansible-role-firewall
   - Iptables: https://github.com/nickjj/ansible-iptables
   - https://docs.ansible.com/ansible/iptables_module.html
- - [ ] Backups
- - [ ] Make project public
- - [ ] Make ARM docker images public in docker hub
- - [ ] Redirect site to www.site, as per comment in https://stackoverflow.com/questions/11773544/nginx-different-domains-on-same-ip#11778085
+- [ ] Backups
+- [ ] Make project public
+- [ ] Make ARM docker images public in docker hub
+- [ ] Redirect site to www.site, as per comment in https://stackoverflow.com/questions/11773544/nginx-different-domains-on-same-ip#11778085
 
 ### Previous stuff
 - [x] Domain name from https://www.nic.lv/
