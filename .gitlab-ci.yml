@@ -70,3 +70,23 @@ build_python:
   tags:
     - arm
     - shell
+
+build_python2:
+  only:
+    - triggers
+  script:
+    - git clone https://github.com/docker-library/python
+    - cd $(ls -d python/2*/ | sort | tail -n 1)alpine
+    - sed -i 's/FROM /FROM armhf\//g' Dockerfile
+    - sed -i 's/\&\& gpg --keyserver/\&\& gpg-agent --daemon \&\& gpg --keyserver/g' Dockerfile
+    - TAG=$(sed -n -e 's/ENV PYTHON_VERSION //p' Dockerfile)
+    - echo ${TAG}
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
+    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} .
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG}
+    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest
+
+  tags:
+    - arm
+    - shell
