@@ -1,16 +1,9 @@
 ### Prioritized list
-- [x] Letsencrypt https://github.com/certbot/certbot
-- [x] Document all that's done until now
-- [x] Set up Monitoring
+- [ ] Document all that's done until now
 - [ ] Separate repos
   - [x] Ansible
   - cloud_project_infrastructure to hold
     - Terraform
-- [x] Netdata under basicauth
-  - https://github.com/firehol/netdata/wiki/Running-behind-nginx
-  - [x] Fix: nginx: [emerg] could not build server_names_hash, you should increase server_names_hash_bucket_size: 32
-- [x] Redirect netdata to https. blog_project.conf apporach actually works for netdata too.
-- [x] Netdata - docker-compose
 - [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
 - [ ] Choose a firewall http://www.tecmint.com/open-source-security-firewalls-for-linux-systems/
   - https://wiki.centos.org/HowTos/Network/IPTables
@@ -19,6 +12,7 @@
   - Iptables: https://github.com/nickjj/ansible-iptables
   - https://docs.ansible.com/ansible/iptables_module.html
 - [ ] Backups
+  - [ ] Encrypt backups
 - [ ] Make project public
 - [ ] Make ARM docker images public in docker hub
 - [ ] Redirect site to www.site, as per comment in https://stackoverflow.com/questions/11773544/nginx-different-domains-on-same-ip#11778085
@@ -70,37 +64,37 @@
     - [x] Gitlab-ci
   - [x] Postgresql database
     - [x] Separate docker container and volume?
-  - [ ] SSL - Letsencrypt https://github.com/kshcherban/acme-nginx https://letsencrypt.org/docs/client-options/
+  - [x] SSL - Letsencrypt https://github.com/kshcherban/acme-nginx https://letsencrypt.org/docs/client-options/
+
 - [ ] Kubernetes https://github.com/kubernetes/kubernetes
-- [ ] Monitoring
-  - [ ] Container Monitoring
-    - docker stats
-    - https://github.com/google/cadvisor
-    - http://rancher.com/comparing-monitoring-options-for-docker-deployments/
-    - https://github.com/prometheus/prometheus
-  - [ ] Graylog https://hub.docker.com/r/graylog2/server/
-    - http://docs.graylog.org/en/latest/pages/collector_sidecar.html
-  - [ ] Set up newest Sensu and Uchiwa.
-    - [ ] Dockerized https://github.com/sensu/sensu/issues/1201
-    - sstarcher/sensu:slim https://hub.docker.com/r/sstarcher/sensu/
-      - [ ] No sensu package for ARM architecture
-    - [ ] Notifications to Telegram
-    - http://metz.gehn.net/2016/01/monitoring-notifications-via-telegram/
-  - [ ] Test Ansible
-  - https://www.ansible.com/blog/testing-ansible-roles-with-docker
+- [ ] Test Ansible
 - [ ] Documentation page
-  - [ ] Drop the custom domain on Gitlab pages as I haven't yet found proper way to enforce https without javascript or such
+  - [x] Drop the custom domain on Gitlab pages as I haven't yet found proper way to enforce https without javascript or such
   - [ ] Host it on
-- [ ] Send mail on IP change
+- [x] Send mail on IP change / Actually sending to telegram
   - https://ariandy1.wordpress.com/2014/04/08/linux-send-email-when-ip-address-changes/
+  - [x] Notifications to Telegram
+  - http://metz.gehn.net/2016/01/monitoring-notifications-via-telegram/
 
 - Monitoring
   - https://www.icinga.com/products/icinga-2/
   - [x] https://github.com/firehol/netdata
+    - [ ] Add custom checks
+      - Check for SSL cert expiration
     - https://github.com/firehol/netdata/wiki/mynetdata-menu-item
-    - [ ] Netdata under basicauth
     - Historic data https://github.com/firehol/netdata/wiki/netdata-backends
       - [ ] Grafana for historic data https://grafana.com/dashboards/1295
+    - [x] Netdata under basicauth
+      - https://github.com/firehol/netdata/wiki/Running-behind-nginx
+      - [x] Fix: nginx: [emerg] could not build server_names_hash, you should increase server_names_hash_bucket_size: 32
+    - [x] Redirect netdata to https. blog_project.conf apporach actually works for netdata too.
+    - [x] Netdata - docker-compose
+    - [x] Container Monitoring
+      - Netdata takes care of this
+      - docker stats
+      - https://github.com/google/cadvisor
+      - http://rancher.com/comparing-monitoring-options-for-docker-deployments/
+      - https://github.com/prometheus/prometheus
 
 - Ansible
   - Testing: https://www.ansible.com/blog/testing-ansible-roles-with-docker
@@ -108,7 +102,11 @@
   - Test installed application: https://docs.ansible.com/ansible/test_strategies.html
 
 - Other interesting stuff
-  - [x] Mailserver: https://github.com/tomav/docker-mailserver
+  - [ ] Explore possibility to encrypt Scaleway disk. Or maybe create encrypted partition/container for data
+  - [ ] Graylog https://hub.docker.com/r/graylog2/server/
+    - http://docs.graylog.org/en/latest/pages/collector_sidecar.html
+  - [ ] Mailserver: https://github.com/tomav/docker-mailserver
+    - Had it on Azure x86-64, should rebuild docker images for ARM
   - Mattermost: https://github.com/mattermost/mattermost-docker
   - Serverless with docker
     - http://blog.alexellis.io/functions-as-a-service/
@@ -123,4 +121,8 @@
   - [ ] (Gunicorn) Alpine passenger
     - https://github.com/lincheney/alpine-passenger/blob/master/Dockerfile
   - [ ] (Alpine) Minimal Ubuntu ARM image? Could try to make
-    - https://wiki.ubuntu.com/ARM/RootfsFromScratch/QemuDebootstrap  
+    - https://wiki.ubuntu.com/ARM/RootfsFromScratch/QemuDebootstrap
+  - [ ] Set up newest Sensu and Uchiwa.
+    - [ ] Dockerized https://github.com/sensu/sensu/issues/1201
+    - sstarcher/sensu:slim https://hub.docker.com/r/sstarcher/sensu/
+      - [ ] No sensu package for ARM architecture
