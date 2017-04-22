@@ -12,6 +12,7 @@ services:
       - ./config/nginx.conf:/etc/nginx/nginx.conf
       - ./static/:/static/
       - /var/docker/certbot/etc/archive/:/etc/nginx/ssl/
+      - /var/docker/nginx/passwords:/etc/nginx/passwords
     depends_on:
       - web
   web:

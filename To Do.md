@@ -6,10 +6,10 @@
   - [x] Ansible
   - cloud_project_infrastructure to hold
     - Terraform
-- [ ] Netdata under basicauth
+- [x] Netdata under basicauth
   - https://github.com/firehol/netdata/wiki/Running-behind-nginx
   - [x] Fix: nginx: [emerg] could not build server_names_hash, you should increase server_names_hash_bucket_size: 32
-- [ ] Redirect netdata to https. Currently blog_project.conf apporach doesn't work for netdata.
+- [x] Redirect netdata to https. blog_project.conf apporach actually works for netdata too.
 - [x] Netdata - docker-compose
 - [ ] https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md
 - [ ] Choose a firewall http://www.tecmint.com/open-source-security-firewalls-for-linux-systems/
@@ -42,14 +42,17 @@
       - [x] Automatic builds of Postgres, Python, Nginx for ARM. Use Travis-ci cron jobs to look for updates in official repos
         - Use Gitlab CI with my own runner, because I don't want to use QEMU when building ARM images in Travis-ci
         - [x] Daily check of software updates
-         - [x] Nginx
-         - [x] Postgresql
-         - [x] Python
-         - [x] Netdata
-         - [x] Push images to Gitlab registry
-         - [ ] Push to DockerHub?
+          - [x] Nginx
+          - [x] Postgresql
+          - [x] Python
+          - [x] Netdata
+          - [x] Push images to Gitlab registry
+          - [ ] Push to DockerHub?
+        - [ ] Drop building couple dockerARM images, if armhf ones are nice
+          - [ ] Use https://hub.docker.com/r/armhf/postgres/
+          - [ ] https://hub.docker.com/r/armhf/python/
     - [x] pip install docker-compose
-    - [ ] Move to compose file version 3 https://docs.docker.com/compose/compose-file/compose-versioning/#version-3
+    - [x] Move to compose file version 3 https://docs.docker.com/compose/compose-file/compose-versioning/#version-3
 - [ ] Develop the blog project
   - [x] Main template: https://docs.djangoproject.com/en/1.10/topics/templates/#template-inheritance
   - [x] <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css">
