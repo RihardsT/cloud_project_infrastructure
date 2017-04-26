@@ -28,7 +28,7 @@ services:
       - "8000"
 
   postgres:
-    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_latest
+    image: armhf/postgres:9.6-alpine
     container_name: postgres01
     volumes:
       - /var/docker/postgresql/data:/var/lib/postgresql/data

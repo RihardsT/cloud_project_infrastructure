@@ -42,9 +42,9 @@
           - [x] Netdata
           - [x] Push images to Gitlab registry
           - [ ] Push to DockerHub?
-        - [ ] Drop building couple dockerARM images, if armhf ones are nice
-          - [ ] Use https://hub.docker.com/r/armhf/postgres/
-          - [ ] https://hub.docker.com/r/armhf/python/
+        - [x] Drop building couple dockerARM images, if armhf ones are nice. \
+          - [x] Use https://hub.docker.com/r/armhf/postgres/ Should be fine, even though there's no latest tag. Will have to check up on this manually (for now) when new version is available.
+          - [x] https://hub.docker.com/r/armhf/python/ Wont use. These don't seem to be updated.
     - [x] pip install docker-compose
     - [x] Move to compose file version 3 https://docs.docker.com/compose/compose-file/compose-versioning/#version-3
 - [ ] Develop the blog project
