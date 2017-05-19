@@ -1,4 +1,4 @@
-FROM registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm
+FROM registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest
 ENV PYTHONUNBUFFERED 1
 RUN apk add --no-cache postgresql-dev musl-dev gcc && pip3 install psycopg2
 RUN mkdir /config
