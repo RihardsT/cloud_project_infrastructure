@@ -13,7 +13,7 @@ services:
       - ./static/:/static/
       - /var/docker/certbot/etc/archive/:/etc/nginx/ssl/
       - /var/docker/nginx/passwords:/etc/nginx/passwords
-      - /var/www/:/var/www/
+      - /var/www/dok.rudenspavasaris.id.lv/site/:/var/www/dok/
     depends_on:
       - web
   web:
