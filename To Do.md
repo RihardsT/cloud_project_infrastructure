@@ -16,6 +16,7 @@
 - [ ] Make project public
 - [ ] Make ARM docker images public in docker hub
 - [ ] Redirect site to www.site, as per comment in https://stackoverflow.com/questions/11773544/nginx-different-domains-on-same-ip#11778085
+- [ ] Vault https://hub.docker.com/_/vault/
 
 ### Previous stuff
 - [x] Domain name from https://www.nic.lv/
@@ -67,10 +68,10 @@
   - [x] SSL - Letsencrypt https://github.com/kshcherban/acme-nginx https://letsencrypt.org/docs/client-options/
 
 - [ ] Kubernetes https://github.com/kubernetes/kubernetes
-- [ ] Test Ansible
-- [ ] Documentation page
+- [x] Test Ansible - with Molecule
+- [x] Documentation page
   - [x] Drop the custom domain on Gitlab pages as I haven't yet found proper way to enforce https without javascript or such
-  - [ ] Host it on
+  - [x] Host it on my own server as static page
 - [x] Send mail on IP change / Actually sending to telegram
   - https://ariandy1.wordpress.com/2014/04/08/linux-send-email-when-ip-address-changes/
   - [x] Notifications to Telegram
@@ -102,6 +103,7 @@
   - Test installed application: https://docs.ansible.com/ansible/test_strategies.html
 
 - Other interesting stuff
+  - [ ] Ansible tower alternative https://github.com/ansible-semaphore/semaphore/
   - [ ] Explore possibility to encrypt Scaleway disk. Or maybe create encrypted partition/container for data
   - [ ] Graylog https://hub.docker.com/r/graylog2/server/
     - http://docs.graylog.org/en/latest/pages/collector_sidecar.html
