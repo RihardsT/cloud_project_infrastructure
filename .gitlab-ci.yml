@@ -109,6 +109,7 @@ build_vault:
     - sed -i '/cp bin\/gosu/ d' Dockerfile
     - sed -i '/adduser/a ADD bin/ /bin/' Dockerfile
     - TAG=$(sed -n -e 's/ENV VAULT_VERSION=//p' Dockerfile)
+    - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
     - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG} .
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG}
