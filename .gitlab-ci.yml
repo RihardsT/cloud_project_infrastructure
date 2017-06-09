@@ -92,6 +92,8 @@ build_python2:
     - shell
 
 build_vault:
+  only:
+    - triggers
   script:
     - git clone https://github.com/hashicorp/docker-vault
     - cd $(ls -d docker-vault/*/ | sort | tail -n 1) # Find the latest version
