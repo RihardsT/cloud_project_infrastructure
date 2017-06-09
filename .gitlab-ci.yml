@@ -92,9 +92,8 @@ build_python2:
     - shell
 
 build_vault:
-  only:
-    - triggers
   script:
+    - pwd
     - mkdir bin
     - wget http://ftp.us.debian.org/debian/pool/main/d/dumb-init/dumb-init_1.2.0-1_armhf.deb
     - ar -x *.deb
@@ -102,6 +101,7 @@ build_vault:
     - cp usr/bin/dumb-init bin/
     - wget  $(curl -s https://api.github.com/repos/tianon/gosu/releases/latest | grep -e '\"browser_download_url.*armhf\"' | sed -n 's/"browser_download_url.* "//p' | sed 's/"//g') -O bin/gosu
     - chmod -R 755 bin/
+    - ls
     - git clone https://github.com/hashicorp/docker-vault
     - cd $(ls -d docker-vault/*/ | sort | tail -n 1) # Find the latest version
     - sed -i 's/FROM /FROM armhf\//g' Dockerfile
@@ -111,6 +111,7 @@ build_vault:
     - sed -i '/cp bin\/gosu/ d' Dockerfile
     - sed -i '/adduser/a ADD bin/ /bin/' Dockerfile
     - TAG=$(sed -n -e 's/ENV VAULT_VERSION=//p' Dockerfile)
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
     - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG} .
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG}
 
