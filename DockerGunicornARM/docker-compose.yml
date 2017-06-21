@@ -45,3 +45,18 @@ services:
       - SYS_PTRACE
     ports:
       - "19999:19999"
+
+  jenkins:
+    image: kodbasen/jenkins-arm
+    container_name: jenkins
+    environment:
+      JENKINS_OPTS: "--prefix=/jenkins"
+    volumes:
+      - /var/docker/jenkins/:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+
+# networks:
+#   default:
+#     name: dockerservicesarm
