@@ -16,3 +16,11 @@ docker-compose up -d
 docker exec django01 /bin/sh -c "python manage.py collectstatic --noinput"
 # Create django superuser
 docker exec -ti django01 /bin/sh -c "python manage.py createsuperuser"
+
+
+# Updating the blog app submodule
+git submodule init
+git submodule update
+git submodule sync
+git add -A
+git commit -m "Update blog app submodule"
