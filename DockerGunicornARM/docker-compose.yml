@@ -41,6 +41,7 @@ services:
     volumes:
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
+      - /var/run/docker.sock
     cap_add:
       - SYS_PTRACE
     ports:
