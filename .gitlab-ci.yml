@@ -22,7 +22,7 @@ build_postgres:
     - triggers
   script:
     - git clone https://github.com/docker-library/postgres/
-    - cd postgres/9.6/alpine
+    - cd postgres/10/alpine
     - sed -i 's/FROM /FROM armhf\//g' Dockerfile
     - TAG=$(sed -n -e 's/ENV PG_VERSION //p' Dockerfile)
     - echo ${TAG}
