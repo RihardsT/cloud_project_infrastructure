@@ -23,7 +23,7 @@ build_postgres:
   script:
     - git clone https://github.com/docker-library/postgres/
     - cd postgres/10/alpine
-    - sed -i 's/FROM /FROM armhf\//g' Dockerfile
+    - sed -i 's#FROM .*#FROM registry.gitlab.com/rihardst/cloud_project_infrastructure:alpine_armhf_3.6.1#g' Dockerfile
     - TAG=$(sed -n -e 's/ENV PG_VERSION //p' Dockerfile)
     - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
