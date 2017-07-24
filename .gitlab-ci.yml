@@ -56,8 +56,8 @@ build_python:
     - triggers
   script:
     - git clone https://github.com/docker-library/python
-    - cd $(ls -d python/*/ | sort | tail -n 1)alpine
-    - sed -i 's/FROM /FROM armhf\//g' Dockerfile
+    - cd $(ls -d python/*/ | sort | tail -n 1)alpine3.6
+    - sed -i 's#FROM .*#FROM registry.gitlab.com/rihardst/cloud_project_infrastructure:alpine_armhf_3.6.1#g' Dockerfile
     - sed -i 's/\&\& gpg --keyserver/\&\& gpg-agent --daemon \&\& gpg --keyserver/g' Dockerfile
     - TAG=$(sed -n -e 's/ENV PYTHON_VERSION //p' Dockerfile)
     - echo ${TAG}
@@ -76,8 +76,8 @@ build_python2:
     - triggers
   script:
     - git clone https://github.com/docker-library/python
-    - cd $(ls -d python/2*/ | sort | tail -n 1)alpine
-    - sed -i 's/FROM /FROM armhf\//g' Dockerfile
+    - cd $(ls -d python/2*/ | sort | tail -n 1)alpine3.6
+    - sed -i 's#FROM .*#FROM registry.gitlab.com/rihardst/cloud_project_infrastructure:alpine_armhf_3.6.1#g' Dockerfile
     - sed -i 's/\&\& gpg --keyserver/\&\& gpg-agent --daemon \&\& gpg --keyserver/g' Dockerfile
     - TAG=$(sed -n -e 's/ENV PYTHON_VERSION //p' Dockerfile)
     - echo ${TAG}
