@@ -58,6 +58,18 @@ services:
       - "8080:8080"
       - "50000:50000"
 
+  vault:
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_0.7.3
+    container_name: vault
+    ports:
+      - "8200:8200"
+    volumes:
+      - /var/docker/vault/:/vault/file/:rw
+      - ./config/vault/:/vault/config/:rw
+    cap_add:
+      - IPC_LOCK
+    entrypoint: vault server -config=/vault/config/
+
 # networks:
 #   default:
 #     name: dockerservicesarm

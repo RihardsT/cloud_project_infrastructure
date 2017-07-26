@@ -17,6 +17,11 @@
 - [ ] Make ARM docker images public in docker hub
 - [ ] Redirect site to www.site, as per comment in https://stackoverflow.com/questions/11773544/nginx-different-domains-on-same-ip#11778085
 - [ ] Vault https://hub.docker.com/_/vault/
+- [ ] Security testing in CI
+  - Load testing
+  - Stress testing
+  - Soak testing (look for memory leaks)
+  - Spike testing
 
 ### Previous stuff
 - [x] Domain name from https://www.nic.lv/
