@@ -18,3 +18,9 @@ Got even so far to build Passenger Docker image for ARM,
 but I'm dropping that approach in favour of Gunicorn.
 One reason being that the images I created for Passenger where quite hefty.
 Another reason being the mentioned blog post.
+
+
+# Submodule update
+```
+git submodule update --recursive --remote
+```
