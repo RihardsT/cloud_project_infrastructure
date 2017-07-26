@@ -28,10 +28,11 @@ services:
     expose:
       - "8000"
     environment:
-      - VAULT_TOKEN=${VAULT_TOKEN}
       - DATABASE_NAME=django
       - DATABASE_OWNERROLE=django_owner
       - VAULT_DATABASE_PATH=django-auth/creds/fullaccess
+      - VAULT_TOKEN=${VAULT_TOKEN}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
   postgres:
     image: armhf/postgres:9.6-alpine
