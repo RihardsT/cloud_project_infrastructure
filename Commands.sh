@@ -24,3 +24,6 @@ git submodule update
 git submodule sync
 git add -A
 git commit -m "Update blog app submodule"
+
+# Or simpler:
+git submodule update --recursive --remote
