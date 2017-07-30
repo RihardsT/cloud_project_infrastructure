@@ -1,6 +1,6 @@
 ### Prioritized list
 - [ ] Document all that's done until now
-- [ ] Separate repos
+- [x] Separate repos
   - [x] Ansible
   - cloud_project_infrastructure to hold
     - Terraform
@@ -13,7 +13,7 @@
   - https://docs.ansible.com/ansible/iptables_module.html
 - [ ] Backups
   - [ ] Encrypt backups
-- [ ] Make project public
+- [x] Make project public
 - [ ] Make ARM docker images public in docker hub
 - [ ] Redirect site to www.site, as per comment in https://stackoverflow.com/questions/11773544/nginx-different-domains-on-same-ip#11778085
 - [ ] Vault https://hub.docker.com/_/vault/

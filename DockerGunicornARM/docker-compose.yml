@@ -25,8 +25,8 @@ services:
     volumes:
       - ./src:/src
       - ./static:/static
-    expose:
-      - "8000"
+    # expose: # Expose not required here, as these is in same docker network
+    #   - "8000"
     environment:
       - DATABASE_NAME=django
       - DATABASE_OWNERROLE=django_owner
@@ -35,7 +35,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
   postgres:
-    image: armhf/postgres:9.6-alpine
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_latest
     container_name: postgres01
     volumes:
       - /var/docker/postgresql/data:/var/lib/postgresql/data
@@ -52,25 +52,14 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     cap_add:
       - SYS_PTRACE
-    ports:
-      - "19999:19999"
-
-  jenkins:
-    image: kodbasen/jenkins-arm
-    container_name: jenkins
-    environment:
-      JENKINS_OPTS: "--prefix=/jenkins"
-    volumes:
-      - /var/docker/jenkins/:/var/jenkins_home
-    ports:
-      - "8080:8080"
-      - "50000:50000"
+    # ports:
+    #   - "19999:19999"
 
   vault:
     image: registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_0.7.3
     container_name: vault
-    ports:
-      - "8200:8200"
+    # ports:
+    #   - "8200:8200"
     volumes:
       - /var/docker/vault/:/vault/file/:rw
       - ./config/vault/:/vault/config/:rw
@@ -78,6 +67,17 @@ services:
       - IPC_LOCK
     entrypoint: vault server -config=/vault/config/
 
-# networks:
-#   default:
-#     name: dockerservicesarm
+  # jenkins:
+  #   image: kodbasen/jenkins-arm
+  #   container_name: jenkins
+  #   environment:
+  #     JENKINS_OPTS: "--prefix=/jenkins"
+  #   volumes:
+  #     - /var/docker/jenkins/:/var/jenkins_home
+  #   ports:
+  #     - "8080:8080"
+  #     - "50000:50000"
+
+networks:
+  default:
+    name: dockerservicesarm
