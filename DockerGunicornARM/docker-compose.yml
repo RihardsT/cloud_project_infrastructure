@@ -67,16 +67,16 @@ services:
       - IPC_LOCK
     entrypoint: vault server -config=/vault/config/
 
-  # jenkins:
-  #   image: kodbasen/jenkins-arm
-  #   container_name: jenkins
-  #   environment:
-  #     JENKINS_OPTS: "--prefix=/jenkins"
-  #   volumes:
-  #     - /var/docker/jenkins/:/var/jenkins_home
-  #   ports:
-  #     - "8080:8080"
-  #     - "50000:50000"
+  jenkins:
+    image: kodbasen/jenkins-arm
+    container_name: jenkins
+    environment:
+      JENKINS_OPTS: "--prefix=/jenkins"
+    volumes:
+      - /var/docker/jenkins/:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
 
 # networks:
 #   default:
