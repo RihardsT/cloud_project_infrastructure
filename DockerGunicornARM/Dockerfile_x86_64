@@ -1,0 +1,8 @@
+FROM python:3-alpine
+ENV PYTHONUNBUFFERED 1
+RUN apk add --no-cache postgresql-dev musl-dev gcc && pip install psycopg2
+RUN mkdir /config
+ADD /config/requirements.txt /config/
+RUN pip install -r /config/requirements.txt
+RUN mkdir /src;
+WORKDIR /src

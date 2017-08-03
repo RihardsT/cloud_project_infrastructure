@@ -1,0 +1,85 @@
+version: '3'
+services:
+  nginx:
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_latest
+    container_name: nginx01
+    ports:
+      - "80:8001"
+      - "443:8000"
+    volumes:
+      - ./src/:/src/
+      - ./config/nginx/:/etc/nginx/conf.d/
+      - ./config/nginx.conf:/etc/nginx/nginx.conf
+      - ./static/:/static/
+      - /var/docker/certbot/etc/archive/:/etc/nginx/ssl/
+      - /var/docker/nginx/passwords:/etc/nginx/passwords
+      - /var/www/dok.rudenspavasaris.id.lv/site/:/var/www/site/
+    depends_on:
+      - web
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile_armv7l
+    container_name: django01
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn blog_project.wsgi -b 0.0.0.0:8000 -b 0.0.0.0:8001"
+    depends_on:
+      - postgres
+    volumes:
+      - ./src:/src
+      - ./static:/static
+    # expose: # Expose not required here, as these is in same docker network
+    #   - "8000"
+    environment:
+      - DATABASE_NAME=django
+      - DATABASE_OWNERROLE=django_owner
+      - VAULT_DATABASE_PATH=django-auth/creds/fullaccess
+      - VAULT_TOKEN=${VAULT_TOKEN}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+  postgres:
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_latest
+    container_name: postgres01
+    volumes:
+      - /var/docker/postgresql/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+  netdata:
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:netdata_arm_latest
+    container_name: netdata01
+    hostname: c_netdata
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    cap_add:
+      - SYS_PTRACE
+    # ports:
+    #   - "19999:19999"
+
+  vault:
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_0.7.3
+    container_name: vault
+    # ports:
+    #   - "8200:8200"
+    volumes:
+      - /var/docker/vault/:/vault/file/:rw
+      - ./config/vault/:/vault/config/:rw
+    cap_add:
+      - IPC_LOCK
+    entrypoint: vault server -config=/vault/config/
+
+  jenkins:
+    image: kodbasen/jenkins-arm
+    container_name: jenkins
+    environment:
+      JENKINS_OPTS: "--prefix=/jenkins"
+    volumes:
+      - /var/docker/jenkins/:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+
+# networks:
+#   default:
+#     name: dockerservicesarm
