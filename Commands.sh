@@ -27,3 +27,6 @@ git commit -m "Update blog app submodule"
 
 # Or simpler:
 git submodule update --recursive --remote
+
+# Add submodule
+git submodule add git@gitlab.com:RihardsT/cloud_project_django.git DockerGunicorn/src
