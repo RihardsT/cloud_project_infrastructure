@@ -2,7 +2,7 @@ version: '3'
 services:
   nginx:
     image: nginx:latest
-    container_name: nginx01
+    container_name: nginx
     ports:
       - "80:8001"
       - "443:8000"
@@ -20,7 +20,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile_x86_64
-    container_name: django01
+    container_name: django
     command: sh -c "python manage.py makemigrations && python manage.py migrate && gunicorn blog_project.wsgi -b 0.0.0.0:8000 -b 0.0.0.0:8001"
     depends_on:
       - postgres
@@ -38,7 +38,7 @@ services:
 
   postgres:
     image: postgres:10-alpine
-    container_name: postgres01
+    container_name: postgres
     volumes:
       - /var/docker/postgresql/data:/var/lib/postgresql/data
     environment:
