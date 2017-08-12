@@ -46,7 +46,7 @@ services:
 
   netdata:
     image: registry.gitlab.com/rihardst/cloud_project_infrastructure:netdata_arm_latest
-    container_name: netdata01
+    container_name: netdata
     hostname: c_netdata
     volumes:
       - /proc:/host/proc:ro
