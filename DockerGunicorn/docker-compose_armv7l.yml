@@ -37,7 +37,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
   postgres:
-    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_latest
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_10beta2
     container_name: postgres
     volumes:
       - /var/docker/postgresql/data:/var/lib/postgresql/data
