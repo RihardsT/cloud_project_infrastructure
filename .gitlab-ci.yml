@@ -96,7 +96,8 @@ build_vault:
     - triggers
   script:
     - git clone https://github.com/hashicorp/docker-vault
-    - cd $(ls -d docker-vault/*/ | sort | tail -n 1) # Find the latest version
+    # - cd $(ls -d docker-vault/*/ | sort | tail -n 1) # Find the latest version
+    - cd docker-vault/0.8.0/
     - mkdir bin
     - wget http://ftp.us.debian.org/debian/pool/main/d/dumb-init/dumb-init_1.2.0-1_armhf.deb
     - ar -x *.deb
@@ -115,6 +116,8 @@ build_vault:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
     - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG} .
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG}
+    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG} rihards/private:${TAG}
+    - docker push rihards/private:${TAG}
 
   tags:
     - arm
