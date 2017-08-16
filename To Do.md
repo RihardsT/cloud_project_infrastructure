@@ -1,5 +1,5 @@
 ### Prioritized list
-- [ ] Document all that's done until now
+- [x] Document all that's done until now
 - [x] Separate repos
   - [x] Ansible
   - cloud_project_infrastructure to hold
@@ -16,7 +16,7 @@
 - [x] Make project public
 - [ ] Make ARM docker images public in docker hub
 - [ ] Redirect site to www.site, as per comment in https://stackoverflow.com/questions/11773544/nginx-different-domains-on-same-ip#11778085
-- [ ] Vault https://hub.docker.com/_/vault/
+- [x] Vault https://hub.docker.com/_/vault/
 - [ ] Security testing in CI
   - Load testing
   - Stress testing
@@ -32,8 +32,8 @@
   - [x] Ansible all these things
     - [x] New user creation
     - [ ] Docker install
-    - [ ] Docker compose
-    - [ ] Bring up the containers  
+    - [x] Docker compose
+    - [x] Bring up the containers  
   - [x] Setup OpenVPN
     - [x] https://github.com/kylemanna/docker-openvpn // https://github.com/giggio/docker-openvpn-arm
   - [x] Try out Gunicorn
@@ -64,7 +64,7 @@
     - [x] Put tests in separate folder
     - https://realpython.com/blog/python/testing-in-django-part-1-best-practices-and-examples/
     - [x] Code coverage
-      - [ ] Codacy https://github.com/codacy/python-codacy-coverage#setup
+      - [x] Codacy https://github.com/codacy/python-codacy-coverage#setup
     - [ ] Selenium
     - [ ] Travis-ci ?
     - [x] Gitlab-ci
