@@ -99,8 +99,7 @@ build_vault:
     - triggers
   script:
     - git clone https://github.com/hashicorp/docker-vault
-    # - cd $(ls -d docker-vault/*/ | sort | tail -n 1) # Find the latest version
-    - cd docker-vault/0.8.0/
+    - cd $(ls -d docker-vault/*/ | sort | tail -n 1) # Find the latest version
     - mkdir bin
     - wget http://ftp.us.debian.org/debian/pool/main/d/dumb-init/dumb-init_1.2.0-1_armhf.deb
     - ar -x *.deb
