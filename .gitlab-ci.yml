@@ -8,10 +8,10 @@ build_nginx:
     - TAG=$(sed -n -e 's/ENV NGINX_VERSION //p' Dockerfile)
     - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
-    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_${TAG} .
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_${TAG}
-    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_latest
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_latest
+    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure/nginx_arm:${TAG} .
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/nginx_arm:${TAG}
+    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure/nginx_arm:${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure/nginx_arm:latest
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/nginx_arm:latest
 
   tags:
     - arm
@@ -27,10 +27,10 @@ build_postgres:
     - TAG=$(sed -n -e 's/ENV PG_VERSION //p' Dockerfile)
     - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
-    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_${TAG} .
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_${TAG}
-    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_latest
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_latest
+    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure/postgres_arm:${TAG} .
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/postgres_arm:${TAG}
+    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure/postgres_arm:${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure/postgres_arm:latest
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/postgres_arm:latest
 
   tags:
     - arm
@@ -65,10 +65,10 @@ build_python:
     - TAG=$(sed -n -e 's/ENV PYTHON_VERSION //p' Dockerfile)
     - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
-    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} .
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG}
-    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest
+    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure/python3_arm:${TAG} .
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/python3_arm:${TAG}
+    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure/python3_arm:${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure/python3_arm:latest
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/python3_arm:latest
 
   tags:
     - arm
@@ -85,10 +85,10 @@ build_python2:
     - TAG=$(sed -n -e 's/ENV PYTHON_VERSION //p' Dockerfile)
     - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
-    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} .
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG}
-    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest2
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:python_arm_latest2
+    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructur/python2_arm:${TAG} .
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/python2_arm:${TAG}
+    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure/python2_arm:${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure/python2_arm:latest
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/python2_arm:latest
 
   tags:
     - arm
@@ -116,9 +116,9 @@ build_vault:
     - TAG=$(sed -n -e 's/ENV VAULT_VERSION=//p' Dockerfile)
     - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
-    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG} .
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG}
-    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG} rihards/private:${TAG}
+    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure/vault_arm:${TAG} .
+    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/vault_arm:${TAG}
+    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure/vault_arm:${TAG} rihards/vault_arm:${TAG}
     - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
     - docker push rihards/vault_arm:${TAG}
 
