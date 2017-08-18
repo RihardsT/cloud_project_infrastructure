@@ -67,7 +67,7 @@ build_python2:
     - TAG=$(sed -n -e 's/ENV PYTHON_VERSION //p' Dockerfile)
     - echo ${TAG}
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
-    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructur/python2_arm:${TAG} .
+    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure/python2_arm:${TAG} .
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/python2_arm:${TAG}
     - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure/python2_arm:${TAG} registry.gitlab.com/rihardst/cloud_project_infrastructure/python2_arm:latest
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/python2_arm:latest
