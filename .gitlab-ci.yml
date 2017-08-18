@@ -120,7 +120,7 @@ build_vault:
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG}
     - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_${TAG} rihards/private:${TAG}
     - docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD}
-    - docker push rihards/private:${TAG}
+    - docker push rihards/vault_arm:${TAG}
 
   tags:
     - arm
