@@ -1,7 +1,7 @@
 version: '3'
 services:
   nginx:
-    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:nginx_arm_latest
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure/nginx_arm:latest
     container_name: nginx
     ports:
       - "80:8001"
@@ -37,7 +37,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
   postgres:
-    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:postgres_arm_10beta2
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure/postgres_arm:10beta2
     container_name: postgres
     volumes:
       - /var/docker/postgresql/data:/var/lib/postgresql/data
@@ -45,7 +45,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
   netdata:
-    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:netdata_arm_latest
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure/netdata_arm
     container_name: netdata
     hostname: c_netdata
     volumes:
@@ -58,7 +58,7 @@ services:
     #   - "19999:19999"
 
   vault:
-    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:vault_arm_0.7.3
+    image: registry.gitlab.com/rihardst/cloud_project_infrastructure/vault_arm:0.8.1
     container_name: vault
     # ports:
     #   - "8200:8200"
