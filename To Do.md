@@ -22,6 +22,13 @@
   - Stress testing
   - Soak testing (look for memory leaks)
   - Spike testing
+- [ ] Automate data base upgrade:
+  - Dump and restore
+
+### General To do:
+- [ ] HA postgres
+- [ ] Kubernetes https://github.com/kubernetes/kubernetes
+
 
 ### Previous stuff
 - [x] Domain name from https://www.nic.lv/
@@ -72,7 +79,6 @@
     - [x] Separate docker container and volume?
   - [x] SSL - Letsencrypt https://github.com/kshcherban/acme-nginx https://letsencrypt.org/docs/client-options/
 
-- [ ] Kubernetes https://github.com/kubernetes/kubernetes
 - [x] Test Ansible - with Molecule
 - [x] Documentation page
   - [x] Drop the custom domain on Gitlab pages as I haven't yet found proper way to enforce https without javascript or such
@@ -113,7 +119,8 @@
   - [ ] Graylog https://hub.docker.com/r/graylog2/server/
     - http://docs.graylog.org/en/latest/pages/collector_sidecar.html
   - [ ] Mailserver: https://github.com/tomav/docker-mailserver
-    - Had it on Azure x86-64, should rebuild docker images for ARM
+    - [x] Had it on Azure x86-64, should rebuild docker images for ARM
+    - [ ] Set up by Ansible
   - Mattermost: https://github.com/mattermost/mattermost-docker
   - Serverless with docker
     - http://blog.alexellis.io/functions-as-a-service/
@@ -121,15 +128,15 @@
   - https://github.com/aleen42/badges
 
 - Dropped ideas/approaches
-  - [x] (Gunicorn) Set up Nginx, Passenger
-    - [x] Dockerized
-    - [ ] Don't use passenger_full image as base
-    - [ ] Try more minimal docker base image: https://hub.docker.com/r/blitznote/debootstrap-amd64/
-  - [ ] (Gunicorn) Alpine passenger
+  - [-] (Gunicorn) Set up Nginx, Passenger
+    - [-] Dockerized
+    - [-] Don't use passenger_full image as base
+    - [-] Try more minimal docker base image: https://hub.docker.com/r/blitznote/debootstrap-amd64/
+  - [-] (Gunicorn) Alpine passenger
     - https://github.com/lincheney/alpine-passenger/blob/master/Dockerfile
-  - [ ] (Alpine) Minimal Ubuntu ARM image? Could try to make
+  - [-] (Alpine) Minimal Ubuntu ARM image? Could try to make
     - https://wiki.ubuntu.com/ARM/RootfsFromScratch/QemuDebootstrap
-  - [ ] Set up newest Sensu and Uchiwa.
-    - [ ] Dockerized https://github.com/sensu/sensu/issues/1201
+  - [-] Set up newest Sensu and Uchiwa.
+    - [-] Dockerized https://github.com/sensu/sensu/issues/1201
     - sstarcher/sensu:slim https://hub.docker.com/r/sstarcher/sensu/
-      - [ ] No sensu package for ARM architecture
+      - [-] No sensu package for ARM architecture
