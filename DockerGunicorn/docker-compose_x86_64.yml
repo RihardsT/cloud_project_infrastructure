@@ -27,7 +27,7 @@ services:
     volumes:
       - ./src:/src
       - ./static:/static
-    # expose: # Expose not required here, as these is in same docker network
+    # expose: # Expose not required here, as these are in same docker network
     #   - "8000"
     environment:
       - DATABASE_NAME=django
@@ -45,7 +45,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
 
   netdata:
-    image: registry.gitlab.com/rihardst/cloud_project_infrastructure:netdata_arm_latest
+    image: titpetric/netdata
     container_name: netdata
     hostname: c_netdata
     volumes:
@@ -58,7 +58,7 @@ services:
     #   - "19999:19999"
 
   vault:
-    image: vault:0.7.3
+    image: vault:latest
     container_name: vault
     # ports:
     #   - "8200:8200"
@@ -80,6 +80,6 @@ services:
       - "8080:8080"
       - "50000:50000"
 
-# networks:
-#   default:
-#     name: dockerservicesarm
+networks:
+  default:
+    name: dockerservicesarm

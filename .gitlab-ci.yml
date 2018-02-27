@@ -117,9 +117,7 @@ build_netdata:
     - COMMIT=$(git rev-parse --short HEAD)
     - sed -i 's/FROM /FROM armhf\//g' Dockerfile
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com/rihardst/cloud_project_infrastructure
-    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure/netdata_arm:${COMMIT} .
-    - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/netdata_arm:${COMMIT}
-    - docker tag registry.gitlab.com/rihardst/cloud_project_infrastructure/netdata_arm:${COMMIT} registry.gitlab.com/rihardst/cloud_project_infrastructure/netdata_arm:latest
+    - docker build -t registry.gitlab.com/rihardst/cloud_project_infrastructure/netdata_arm:latest .
     - docker push registry.gitlab.com/rihardst/cloud_project_infrastructure/netdata_arm:latest
 
   tags:
